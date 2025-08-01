@@ -45,23 +45,23 @@ export const Hero = () => {
   return (
     <>
       {/* Promotional Banner Slideshow */}
-      <section className="relative h-64 md:h-80 overflow-hidden bg-gradient-to-r from-orange-400 via-red-400 to-pink-400">
+      <section className="relative h-[300px] sm:h-80 md:h-96 overflow-hidden bg-gradient-to-r from-orange-400 via-red-400 to-pink-400">
         <div className="relative h-full flex items-center">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-full">
+            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 lg:gap-8 items-center justify-center h-full">
               {/* Left Content */}
-              <div className="space-y-4 text-white animate-fade-in">
-                <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+              <div className="space-y-3 lg:space-y-4 text-white animate-fade-in text-center lg:text-left order-2 lg:order-1">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
                   Discover Traditional
                   <br />
                   <span className="text-yellow-200">Dogra Recipes</span>
                 </h2>
-                <p className="text-lg md:text-xl opacity-90 max-w-lg">
+                <p className="text-sm sm:text-lg md:text-xl opacity-90 max-w-lg mx-auto lg:mx-0">
                   Authentic recipes passed down through generations. Experience the rich heritage of Jammu cuisine.
                 </p>
                 <Button 
                   size="lg" 
-                  className="bg-white text-primary hover:bg-gray-100 font-semibold shadow-lg"
+                  className="bg-white text-primary hover:bg-gray-100 font-semibold shadow-lg w-full sm:w-auto"
                   onClick={scrollToRecipes}
                 >
                   Learn More
@@ -69,12 +69,12 @@ export const Hero = () => {
               </div>
               
               {/* Right Images */}
-              <div className="relative flex justify-center items-center">
-                <div className="relative w-full max-w-md">
+              <div className="relative flex justify-center items-center order-1 lg:order-2 w-full">
+                <div className="relative w-full max-w-[280px] sm:max-w-xs lg:max-w-md">
                   <img 
                     src={images[currentImageIndex].src}
                     alt={images[currentImageIndex].alt}
-                    className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-2xl transition-all duration-500"
+                    className="w-full h-32 sm:h-40 md:h-48 lg:h-64 object-cover rounded-xl lg:rounded-2xl shadow-2xl transition-all duration-500"
                     key={currentImageIndex}
                   />
                 </div>
@@ -85,25 +85,25 @@ export const Hero = () => {
           {/* Navigation Arrows */}
           <button
             onClick={handlePrevImage}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-sm transition-all duration-300"
+            className="absolute left-2 lg:left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 lg:p-3 rounded-full backdrop-blur-sm transition-all duration-300"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-4 w-4 lg:h-6 lg:w-6" />
           </button>
           
           <button
             onClick={handleNextImage}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-sm transition-all duration-300"
+            className="absolute right-2 lg:right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 lg:p-3 rounded-full backdrop-blur-sm transition-all duration-300"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-4 w-4 lg:h-6 lg:w-6" />
           </button>
           
           {/* Dots Indicator */}
-          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+          <div className="absolute bottom-4 lg:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 lg:space-x-3">
             {images.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-2 h-2 lg:w-3 lg:h-3 rounded-full transition-all duration-300 ${
                   index === currentImageIndex 
                     ? 'bg-white scale-125' 
                     : 'bg-white/50 hover:bg-white/80'
