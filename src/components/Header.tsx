@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, User } from "lucide-react";
+import { Menu, User, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 export const Header = () => {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -30,11 +32,70 @@ export const Header = () => {
               <span>Admin Access</span>
             </Button>
           </Link>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-4 w-4" />
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="md:hidden"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </Button>
         </div>
       </div>
+      
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <div className="container py-4 space-y-3">
+            <Link 
+              to="/" 
+              className={`block px-4 py-2 rounded-md transition-colors ${
+                location.pathname === "/" ? "bg-primary/10 text-primary" : "hover:bg-muted text-muted-foreground"
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link 
+              to="/about" 
+              className={`block px-4 py-2 rounded-md transition-colors ${
+                location.pathname === "/about" ? "bg-primary/10 text-primary" : "hover:bg-muted text-muted-foreground"
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About Us
+            </Link>
+            <Link 
+              to="/contact" 
+              className={`block px-4 py-2 rounded-md transition-colors ${
+                location.pathname === "/contact" ? "bg-primary/10 text-primary" : "hover:bg-muted text-muted-foreground"
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contact
+            </Link>
+            <Link 
+              to="/post-recipe" 
+              className={`block px-4 py-2 rounded-md transition-colors ${
+                location.pathname === "/post-recipe" ? "bg-primary/10 text-primary" : "hover:bg-muted text-muted-foreground"
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Post Your Recipe
+            </Link>
+            <Link 
+              to="/admin/login" 
+              className="block px-4 py-2 rounded-md transition-colors hover:bg-muted text-muted-foreground"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <div className="flex items-center space-x-2">
+                <User className="h-4 w-4" />
+                <span>Admin Access</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
