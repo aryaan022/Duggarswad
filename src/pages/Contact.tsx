@@ -136,16 +136,19 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="container mx-auto px-4 py-16">
-        {/* Contact Us Header */}
-        <section className="text-center mb-16">
+      {/* Contact Us Header - Full Width */}
+      <section className="w-full py-16 text-center" style={{ backgroundColor: 'rgb(254,229,228)' }}>
+        <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Contact Us
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             We'd love to hear from you. Send us a message!
           </p>
-        </section>
+        </div>
+      </section>
+      
+      <main className="container mx-auto px-4 py-16">
 
         <div className="grid md:grid-cols-2 gap-16">
           {/* Get in Touch Section */}
@@ -342,7 +345,7 @@ const Contact = () => {
                   </span>
                 </summary>
                 <p className="mt-4 text-muted-foreground">
-                  You can submit your recipe through our 'Post Your Blog' page. No registration required! Just fill out the form with your recipe details and we'll review it for publication.
+                  You can submit your recipe through our 'Post Your Recipe' page. No registration required! Just fill out the form with your recipe details and we'll review it for publication.
                 </p>
               </details>
             </div>

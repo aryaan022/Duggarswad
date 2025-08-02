@@ -16,6 +16,7 @@ export const Header = () => {
             alt="Duggarswad Logo" 
             className="h-10 w-auto"
           />
+          <h1 className="text-xl md:text-2xl font-bold text-primary">Duggarswad</h1>
         </Link>
         
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">

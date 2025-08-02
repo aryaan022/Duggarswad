@@ -9,16 +9,19 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="container mx-auto px-4 py-16">
-        {/* About Duggarswad Section */}
-        <section className="text-center mb-16">
+      {/* About Duggarswad Header - Full Width */}
+      <section className="w-full py-12 text-center" style={{ backgroundColor: 'rgb(254,229,228)' }}>
+        <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             About Duggarswad
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Preserving the culinary heritage of Jammu & Kashmir
           </p>
-        </section>
+        </div>
+      </section>
+      
+      <main className="container mx-auto px-4 py-16">
 
         {/* Our Story Section */}
         <section className="grid md:grid-cols-2 gap-12 items-center mb-16">

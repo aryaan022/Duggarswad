@@ -168,8 +168,8 @@ export const RecipeGrid = () => {
   const allRecipes = [...recipes, ...dbRecipes];
 
   const handleReadMore = (recipe: Recipe) => {
-    setSelectedRecipe(recipe);
-    setIsModalOpen(true);
+    // Navigate to recipe detail page instead of opening modal
+    window.location.href = `/recipe/${recipe.id}`;
   };
   return (
     <section className="py-20 bg-secondary/30 recipe-section">
@@ -216,13 +216,6 @@ export const RecipeGrid = () => {
           )}
         </div>
 
-        {selectedRecipe && (
-          <RecipeDetailModal
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
-            recipe={selectedRecipe}
-          />
-        )}
       </div>
     </section>
   );
